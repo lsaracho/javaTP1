@@ -9,5 +9,11 @@ package javatprecetas;
  * @author VTCLUSAR
  */
 public class Ingrediente {
+    private Integer codigo;
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+    
     
 }
