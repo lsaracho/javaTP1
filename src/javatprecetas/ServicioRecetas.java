@@ -8,6 +8,6 @@ package javatprecetas;
  *
  * @author VTCLUSAR
  */
-public class ServicioRecetas {
+public class ObtenerArchivo {
     
 }
