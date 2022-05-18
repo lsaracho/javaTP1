@@ -11,8 +11,8 @@ package javatprecetas;
 
 public class Ingrediente {
     
-    String codigo, nombre;
-    int cantidad;
+    private String codigo, nombre;
+    private int cantidad;
     
     public Ingrediente(String codigo, String nombre, int cantidad) {
         this.codigo = codigo;
