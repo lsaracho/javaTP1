@@ -30,3 +30,4 @@ public class Receta {
     class getListaIngrediente { public getListaIngrediente() { 
         }
     }
+}
