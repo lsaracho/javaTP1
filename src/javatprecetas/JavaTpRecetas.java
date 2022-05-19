@@ -20,6 +20,7 @@ public class JavaTpRecetas {
         // TODO code application logic here
         
             ///TODOS ESTOS VALORES DEBEN LLENARSE CON EL OTRO ARCHIVO
+            /*
     Ingrediente IngredienteReceta = new Ingrediente("CODAB","PIPI",1);
     Ingrediente IngredienteReceta2 = new Ingrediente("CODAB1","CEBOLLA",1);
     Ingrediente IngredienteReceta3 = new Ingrediente("CODAB2","HUEVO",1);
@@ -80,6 +81,14 @@ public class JavaTpRecetas {
   
         
         System.out.println("HolaMundo2");
+*/
+            String obtenerPathRecetas = "";
+            String ObtenerPathIngredientes = "";
+            OrganizadorRecetas nuevaOrganizador = new OrganizadorRecetas();
+            nuevaOrganizador.arracarOrganizadorRecetas(obtenerPathRecetas, ObtenerPathIngredientes);
+            
+            
     }
     
 }
+
