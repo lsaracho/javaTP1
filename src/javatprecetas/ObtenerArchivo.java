@@ -35,19 +35,13 @@ public class ObtenerArchivo {
     public ArrayList<Ingrediente> ConvertirPathIngredientes(){
         
         String row;
-        //Ingrediente listaIngredientes2[];
-        ArrayList<Ingrediente> listaIngredientes = new ArrayList<Ingrediente>();
+        ArrayList<Ingrediente> listaIngredientes = new ArrayList();
 
                 
         try {
             while ((row = this.csvIngredientes.readLine()) != null){
                 String[] data = row.split(";");
-                
-                /*System.out.println(row);
-                for(int i=0; i < data.length;i++)
-                    System.out.println(i+":"+data[i]);
-                */
-                
+                                
                 Ingrediente ingredienteAux = new Ingrediente(data[0], data[1], Integer.parseInt(data[2]));
                 
                 listaIngredientes.add(ingredienteAux);                 
@@ -59,13 +53,47 @@ public class ObtenerArchivo {
             Logger.getLogger(ObtenerArchivo.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-        /*for(int j=0; j < listaIngredientes.size(); j++){
+        for(int j=0; j < listaIngredientes.size(); j++){
             System.out.println(j+":"+listaIngredientes.get(j).getNombre());  
         
-        }*/
+        }
         
         
         return listaIngredientes;
     }
+    
+    
+    public ArrayList<Receta> ConvertirPathRecetas(){
+        
+        String row;
+        ArrayList<Ingrediente> listaIngredientes = new ArrayList();
+        ArrayList<Receta> listaRecetas = new ArrayList();
+                
+        try {
+            while ((row = this.csvIngredientes.readLine()) != null){
+                String[] data = row.split(";");
+                                
+                Ingrediente ingredienteAux = new Ingrediente(data[0], data[1], Integer.parseInt(data[2]));
+                
+                listaIngredientes.add(ingredienteAux);                 
+            }
+             this.csvIngredientes.close();
+             
+             
+        } catch (IOException ex) {
+            Logger.getLogger(ObtenerArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+ 
+        
+        Receta recetaAux = new Receta(1,"Receta01");
+        
+        recetaAux.setListaIngrediente(listaIngredientes);
+        
+        listaRecetas.add(recetaAux);
+        
+        return listaRecetas;
+    }
+    
     
 }
