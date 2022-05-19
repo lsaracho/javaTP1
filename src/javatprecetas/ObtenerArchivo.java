@@ -10,6 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -30,12 +32,12 @@ public class ObtenerArchivo {
         }
     }
     
-    public void ConvertirPathIngredientes(){
+    public ArrayList<Ingrediente> ConvertirPathIngredientes(){
         
         String row;
         //Ingrediente listaIngredientes2[];
-        Ingrediente[] listaIngredientes = new Ingrediente[6];
-        int i = 0;
+        ArrayList<Ingrediente> listaIngredientes = new ArrayList<Ingrediente>();
+
                 
         try {
             while ((row = this.csvIngredientes.readLine()) != null){
@@ -48,20 +50,22 @@ public class ObtenerArchivo {
                 
                 Ingrediente ingredienteAux = new Ingrediente(data[0], data[1], Integer.parseInt(data[2]));
                 
-                listaIngredientes[i] = ingredienteAux;                 
-                i++;
+                listaIngredientes.add(ingredienteAux);                 
             }
              this.csvIngredientes.close();
+             
+             
         } catch (IOException ex) {
             Logger.getLogger(ObtenerArchivo.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-        for(int j=0; j < listaIngredientes.length; j++){
-            System.out.println(j+":"+listaIngredientes[j].getNombre());            
-        }
+        /*for(int j=0; j < listaIngredientes.size(); j++){
+            System.out.println(j+":"+listaIngredientes.get(j).getNombre());  
+        
+        }*/
         
         
-        
+        return listaIngredientes;
     }
     
 }
