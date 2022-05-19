@@ -13,17 +13,29 @@ import java.util.List;
  */
 public class OrganizadorRecetas {
     
+    public void arracarOrganizadorRecetas(String pathRecetas,String pathIngredientes){
+    
+    ObtenerArchivo archivo = new ObtenerArchivo(pathRecetas, pathIngredientes);
+    ArrayList<Receta> listaRecetasEvaluar = archivo.ConvertirPathRecetas();
+    ArrayList<Ingrediente> listaIngredientesDisponibles = archivo.ConvertirPathIngredientes();
+    this.RecetasPosibles(listaRecetasEvaluar, listaIngredientesDisponibles);
+    
+    }
+    
 
-       public  String RecetasPosibles(ArrayList<Receta> listaRecetasEvaluar, ArrayList<Ingrediente> listaIngredientesDisponibles){
-        String devolver = "";
+       public  void RecetasPosibles(ArrayList<Receta> listaRecetasEvaluar, ArrayList<Ingrediente> listaIngredientesDisponibles){
+        boolean posible = false;
         for(int i = 0; i < listaRecetasEvaluar.size(); i++){            
             //si no encontró, devuelvo falso
             if( buscarEnHeladera(listaRecetasEvaluar.get(i).getListaIngrediente(), listaIngredientesDisponibles) == true){
-                System.out.println("Se encontro el el "+ listaRecetasEvaluar.get(i).getNombre());                
+                System.out.println("La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" Es posible"); 
+                posible = true;
             }
         }
         
-        return "No se encontro un valor";
+        if (!posible){
+            System.out.println("No se encontraron recetas posibles"); 
+        }
     }
     
         private static boolean buscarEnHeladera(ArrayList<Ingrediente> listaIngredientesRecetas, ArrayList<Ingrediente> listaIngredientesDisponibles) {
