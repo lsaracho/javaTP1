@@ -10,19 +10,14 @@ import java.util.ArrayList;
  * @author VTCLUSAR
  */
 public class Receta {
-    private int codigo;
     private String nombre;
     private ArrayList<Ingrediente> listaIngrediente;
 
-    public Receta(int codigo, String nombre) {
-        this.codigo = codigo;
+    public Receta(String nombre) {
         this.nombre = nombre;
     }  
         
-    public int getCodigo() { 
-        return codigo; 
-    }
-    
+   
     public String getNombre() { 
         return nombre; 
     }
@@ -31,8 +26,6 @@ public class Receta {
         return listaIngrediente; 
     }
   
-    public void setCodigo(int codigo) { this.codigo = codigo; }
-    
     public void setNombre(String nombre) { this.nombre = nombre; }
     
     public void setListaIngrediente(ArrayList<Ingrediente> listaIngrediente) {
