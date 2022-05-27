@@ -8,14 +8,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
- * @author VTCLUSAR
+ * Declaracion de la clase OrganizadorRecetas.
+ * En esta clase se hace la comparacion de los ingredientes de la receta y los ingredientes disponibles.
+ * @author Grupo 8
  */
 public class OrganizadorRecetas {
-    
+    /**
+     * Declaracion de los atributos privados
+     */
     private  ArrayList<Receta> listaRecetasEvaluar = new ArrayList();
     private  ArrayList<Ingrediente> listaIngredientesDisponibles = new ArrayList();
-    
+    /**
+    * @param pathRecetas
+    * @param pathIngredientes
+    * @throws IOException
+    * @return valorDevolver
+    */
     public String arracarOrganizadorRecetas(String pathRecetas,String pathIngredientes) throws IOException{
     
         ObtenerArchivo archivo = new ObtenerArchivo(pathRecetas, pathIngredientes);
