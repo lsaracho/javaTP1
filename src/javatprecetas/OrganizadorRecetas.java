@@ -25,6 +25,14 @@ public class OrganizadorRecetas {
     
     }
     
+    public String arracarOrganizadorRecetasDetalle(String pathRecetas,String pathIngredientes) throws IOException{
+    
+        ObtenerArchivo archivo = new ObtenerArchivo(pathRecetas, pathIngredientes);
+        listaRecetasEvaluar = archivo.ConvertirPathRecetas();
+        listaIngredientesDisponibles = archivo.ConvertirPathIngredientes();
+        return this.RecetasPosiblesDetalle(listaRecetasEvaluar,listaIngredientesDisponibles);
+    
+    }
 
     public  String RecetasPosibles(ArrayList<Receta> listaRecetasEvaluar, ArrayList<Ingrediente> listaIngredientesDisponibles){
         String valorDevolver ="";
@@ -33,6 +41,26 @@ public class OrganizadorRecetas {
                 valorDevolver = valorDevolver + " La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" Es posible\n" ;  
             }else{
                 valorDevolver = valorDevolver + " La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" No tiene suficientes ingredientes\n" ;
+            }
+        }
+        
+        valorDevolver = valorDevolver + "\n \n \n Cantidad de archivo de recetas procesados:" + this.listaRecetasEvaluar.size();
+        valorDevolver = valorDevolver + "\n Cantidad de variedad de ingredientes disponibles:" + listaIngredientesDisponibles.size();
+        return valorDevolver;
+    }
+    
+    
+     public  String RecetasPosiblesDetalle(ArrayList<Receta> listaRecetasEvaluar, ArrayList<Ingrediente> listaIngredientesDisponibles){
+        String valorDevolver ="";
+        for(int i=0; i<this.listaRecetasEvaluar.size(); i++){            
+             if( buscarEnHeladera(listaRecetasEvaluar.get(i).getListaIngrediente(), listaIngredientesDisponibles)){
+                valorDevolver = valorDevolver + "\n La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" Es posible";
+                valorDevolver = valorDevolver + " Ingredientes Utilizados:\n";
+                for(int j=0; j<listaRecetasEvaluar.get(i).getListaIngrediente().size(); j++){
+                    valorDevolver = valorDevolver + " - " + listaRecetasEvaluar.get(i).getListaIngrediente().get(j).getNombre() + " --> Cantidad: " + listaRecetasEvaluar.get(i).getListaIngrediente().get(j).getCantidad() + " \n"; 
+                }
+            }else{
+                valorDevolver = valorDevolver + "\n La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" No tiene suficientes ingredientes\n" ;
             }
         }
         return valorDevolver;
