@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
- * @author JSierra
+ *Declaracion de la clase InterfazUsuario.
+ * @author Grupo8
  */
 public class InterfazUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazUsuario
+     * Creacion de nueva forma InterfazUsuario
      */
     public InterfazUsuario() {
         initComponents();
