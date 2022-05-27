@@ -13,8 +13,9 @@ import java.util.ArrayList;
 
 
 /**
- *
- * @author JSierra
+ * Declaracion de la clase ObtenerArchivo.
+ * Se obtiene el archivo de recetas e ingredientes.
+ * @author Grupo8
  */
 public class ObtenerArchivo {
     private ArrayList<File> listaArchivosRecetas = new ArrayList();
