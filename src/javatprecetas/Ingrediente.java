@@ -6,7 +6,7 @@ package javatprecetas;
 
 /**
  * Declaracion de la clase Ingredientes
- * @author VTCLUSAR
+ * @author Grupo 8
  */
 
 public class Ingrediente {
