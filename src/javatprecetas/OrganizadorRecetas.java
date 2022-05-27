@@ -28,32 +28,20 @@ public class OrganizadorRecetas {
 
     public  String RecetasPosibles(ArrayList<Receta> listaRecetasEvaluar, ArrayList<Ingrediente> listaIngredientesDisponibles){
         String valorDevolver ="";
-       // boolean posible = false;
         for(int i=0; i<this.listaRecetasEvaluar.size(); i++){            
-            //System.out.println("Se evaluara la receta : "+ this.listaRecetasEvaluar.get(i).getListaIngrediente());
              if( buscarEnHeladera(listaRecetasEvaluar.get(i).getListaIngrediente(), listaIngredientesDisponibles)){
-               // System.out.println("La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" Es posible"); 
                 valorDevolver = valorDevolver + " La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" Es posible\n" ;  
-               // posible = true;
             }else{
-               // System.out.println("La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" No tiene suficientes ingredientes");
                 valorDevolver = valorDevolver + " La Receta "+ listaRecetasEvaluar.get(i).getNombre()+" No tiene suficientes ingredientes\n" ;
             }
         }
-
-       // if (!posible){
-         //   System.out.println("No se encontraron recetas posibles"); 
-        //}
         return valorDevolver;
     }
     
     private static boolean buscarEnHeladera(ArrayList<Ingrediente> listaIngredientesRecetas, ArrayList<Ingrediente> listaIngredientesDisponibles) {
-    //boolean valorDevolver = true;
     for (int j = 0; j < listaIngredientesRecetas.size(); j++) {            
-           // System.out.println("Se comparara el ing receta"+ listaIngredientesRecetas.get(j).getNombre());
             if( ! buscarIngredienteStringEnListaDeIngredientes(listaIngredientesRecetas.get(j).getNombre(),listaIngredientesRecetas.get(j).getCantidad(),listaIngredientesDisponibles)){
                 return false;
-                //System.out.println("Significa que alguno de los ingredientes no se encuentra");
         }
     }
     return true;
@@ -62,14 +50,10 @@ public class OrganizadorRecetas {
     
     private static boolean buscarIngredienteStringEnListaDeIngredientes(String ingredienteBuscar,int cantidadIngredienteReceta,ArrayList<Ingrediente> listaIngredientesDisponibles){
         for (int  i = 0; i < listaIngredientesDisponibles.size() ; i++ ){
-           // System.out.println("Con el ingrediente" +listaIngredientesDisponibles.get(i).getNombre());
             if( ingredienteBuscar.equals(listaIngredientesDisponibles.get(i).getNombre()) ){
                 if ( cantidadIngredienteReceta <= listaIngredientesDisponibles.get(i).getCantidad()){
                 return true;
                 }
-                
-                //Si  encuentra PAPA por ej , en la lista de todos los ingredientes devuelvo un true , sino un false
-                
             }
         }
         return false;

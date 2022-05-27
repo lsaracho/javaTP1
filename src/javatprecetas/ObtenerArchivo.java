@@ -17,8 +17,6 @@ import java.util.ArrayList;
  * @author JSierra
  */
 public class ObtenerArchivo {
-    //private BufferedReader csvRecetas = null;
-    //private BufferedReader csvIngredientes = null;
     private ArrayList<File> listaArchivosRecetas = new ArrayList();
     private ArrayList<File> listaArchivosIngredientes = new ArrayList();
     
@@ -62,10 +60,7 @@ public class ObtenerArchivo {
                     listaIngredientes.add(ingredienteAux);                 
                 }
                  csvIngredientes.close();
-                 
-                for(int j=0; j < listaIngredientes.size(); j++){
-                    System.out.println(j+":"+listaIngredientes.get(j).getNombre());  
-                }
+                
             }               
         }
         return listaIngredientes;
@@ -81,7 +76,6 @@ public class ObtenerArchivo {
     public ArrayList<Receta> ConvertirPathRecetas() throws FileNotFoundException, IOException{
         
         String row;
-        ArrayList<Ingrediente> listaIngredientes = new ArrayList();
         ArrayList<Receta> listaRecetas = new ArrayList();
         File file;
         FileReader fr;
@@ -89,6 +83,7 @@ public class ObtenerArchivo {
         
         if(!listaArchivosRecetas.isEmpty()){
             for(int i=0; i<listaArchivosRecetas.size();i++){
+                ArrayList<Ingrediente> listaIngredientes = new ArrayList();
                 file = new File (listaArchivosRecetas.get(i).toString());
                 fr = new FileReader(file);
                 csvRecetas = new BufferedReader(fr);
