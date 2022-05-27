@@ -7,12 +7,13 @@ package javatprecetas;
 import java.util.ArrayList;
 
 /**
- *
- * @author VTCLUSAR
+ * Declaracion de la clase JavaTpRecetas.
+ * @author Grupo 8
  */
 public class JavaTpRecetas {
 
     /**
+     * @throws IOException
      * @param args the command line arguments
      */
     public static void main(String[] args) {
