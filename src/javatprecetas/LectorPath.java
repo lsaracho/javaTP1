@@ -8,19 +8,26 @@ package javatprecetas;
 import java.io.File;
 import java.util.ArrayList;
 
-
 /**
- *
- * @author JSierra
+ * Declaracion de la clase LectorPath.
+ * @author Grupo 8
  */
 public class LectorPath {
-    
+    /**
+     * Declaracion del atributo privado
+     */
     private String path;
-    
+    /**
+    * Creacion del constructor
+    * @param pathEntrada
+    */
     public LectorPath(String pathEntrada){
         this.path = pathEntrada;
     }
-         
+    /**
+    * Se obtiene los archivos mediante un ArrayList
+    * @return listaArchivos
+    */      
     public ArrayList<File> getFiles() {
 
         ArrayList<String>  listaArchivosString = new ArrayList();
