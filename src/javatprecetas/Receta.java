@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Declaracion de la clase Receta.
  * Contiene informacion de la Receta.
- * @author VTCLUSAR
+ * @author Grupo 8
  */
 public class Receta {
     /**
